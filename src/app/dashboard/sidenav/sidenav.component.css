@@ -1,0 +1,33 @@
+.main{
+  padding: 75px 0px;
+}
+input,select,textarea{
+  border-radius: 6px;
+  border: none;
+  width: 100%;
+  padding: 8px;
+}
+label{
+  color: rgb(167, 39, 99);
+}
+.logoimg{
+  width: 155px;
+  height: 80px;
+  margin-right: 10px;
+
+}
+.orange{
+  background: orange;
+  height: 30px;
+  width: 30px;
+  margin: 10px 0px;
+}
+.column{
+  border-right: 1px solid white;
+}
+.addbtn{
+  width: 30px;
+    height: 30px;
+    font-size: 24px;
+    border: 1px solid;
+}

@@ -1,0 +1,84 @@
+<div class="main">
+<div class="form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 column  pt-5">
+      <div class="form-group mb-2">
+        <label class="d-block">Brand Website</label>
+        <input type="text" placeholder="www.xyz.com">
+      </div>
+      <div class="form-group mb-2">
+        <label class="d-block">Brand Name</label>
+        <input type="text" placeholder="xyz">
+      </div>
+      <div class="form-group mt-2">
+        <label class="d-block">Brand Logo</label>
+        <div class="flex">
+
+          <img *ngFor='let url of urls'  [src]="url" height="200" class='card-img logoimg'>
+
+            <span class="add">
+              <label class="submit" for="uploader">Upload Logo</label>
+            <input type='file' (change)="onSelectFile($event)" multiple hidden id="uploader"></span>
+          </div>
+      </div>
+      </div>
+      <div class="col-md-4  pt-5 column">
+       <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="d-flex align-items-center">
+              <div class="orange"></div>
+              <label class="ms-2">#f07826</label>
+            </div>
+
+          </div>
+          <div class="col-md-4 ">
+            <div class="d-flex align-items-center">
+              <div class="orange"></div>
+              <label class="ms-2">#f07826</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="d-flex align-items-center">
+              <div class="orange"></div>
+              <label class="ms-2">#f07826</label>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+          <button class="me-2 addbtn">+</button>
+          <label>Add</label>
+          </div>
+        </div>
+       </div>
+        <div class="form-group mt-5">
+          <label class="d-block">
+            Typography
+          </label>
+          <select name="" id="">
+            <option>Georgia</option>
+            <option>abc</option>
+            <option>abc</option>
+            <option>abc</option>
+            <option>abc</option>
+
+          </select>
+
+        </div>
+
+      </div>
+      <div class="col-md-4  pt-5">
+        <div class="form-group">
+          <label class="d-block">Brand Description</label>
+          <textarea rows="3" placeholder="The creative production partner that understands your brand, your campaigns and your ideas. Delivered beautifully intact, perfectly on time and authentically portrayed. Globally 24/7"></textarea>
+        </div>
+        <div class="form-group mt-5">
+          <label class="d-block">Brand Description</label>
+          <textarea rows="3" placeholder="The creative production partner campaigns,ideas,Advertisement,brand"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
