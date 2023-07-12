@@ -30,11 +30,11 @@ export class ResourceService {
   }
 
   EditApi(id:any,datas:any){
-    return this.http.post<{
-      error: boolean,
+    return this.http.put<{
+      err: boolean,
       response:any,
       message:any;
-    }> (`${environment.baseUrl}/task/update/${id}`,datas)
+    }> (`${environment.baseUrl}/scrap/update-url/${id}`,datas)
   }
 
 

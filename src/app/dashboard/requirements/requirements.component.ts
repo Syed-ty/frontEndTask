@@ -17,7 +17,7 @@ export class RequirementsComponent implements OnInit {
      private service: ResourceService,
       private router: Router,
        private toast: ToastrService,
-       private route: ActivatedRoute
+       private route: ActivatedRoute,
        ) {
         this.ScarpForm = new FormGroup({
           searchUrl: new FormControl('', [
@@ -28,7 +28,7 @@ export class RequirementsComponent implements OnInit {
 
   ngOnInit(): void {
     const routeData = this.router.url;
-     if(routeData === '/dashboard/screen1'){
+     if(routeData === '/website/screen1'){
       localStorage.clear();
       localStorage.removeItem('WebsiteDetails');
      }
@@ -49,7 +49,7 @@ onSubmit(){
       this.toast.success(res.message);
       localStorage.setItem('WebsiteDetails',JSON.stringify(res.response));
       this.ScarpForm.reset();
-      this.router.navigateByUrl('/dashboard/screen2')
+      this.router.navigateByUrl('/website/screen2')
     } else {
       this.toast.error(res.message);
     }

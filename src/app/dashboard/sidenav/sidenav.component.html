@@ -1,3 +1,6 @@
+<mat-spinner *ngIf="showLoadingIndicator"></mat-spinner>
+
+
 <div class="main">
 <div class="form">
   <div class="container">
@@ -14,10 +17,11 @@
       <div class="form-group mt-2">
         <label class="d-block">Brand Logo</label>
         <div class="flex">
-          <img   [src]="sharedData?.logoofWebsite" height="200" class='card-img logoimg'>
+          <!-- <img   [src]="sharedData?.logoofWebsite" height="200" class='card-img logoimg'> -->
+          <img [src]="selectedImageSrc" *ngIf="selectedImageSrc" height="200" class='card-img logoimg'>
             <span class="add">
               <label class="submit" for="uploader">Upload Logo</label>
-            <input type='file' (change)="onSelectFile($event)" multiple hidden id="uploader"></span>
+            <input type='file' (change)="onFileSelected($event)" multiple hidden id="uploader"></span>
           </div>
       </div>
       </div>
