@@ -1,3 +1,5 @@
+<mat-spinner *ngIf="showLoadingIndicator"></mat-spinner>
+
 <div class="main">
   <div class="form">
     <form [formGroup]="ScarpForm">
@@ -6,12 +8,11 @@
         <div class="col-md-6 offset-md-3">
           <div class="form-group">
             <mat-form-field appearance="outline">
-              <input matInput placeholder="Enter URL" formControlName="searchUrl">
+              <input matInput placeholder="Enter URL" formControlName="searchUrl" >
             </mat-form-field>
           </div>
          <div class="form-group text-center mt-3">
-          <!-- routerLink="/dashboard/screen2" -->
-          <button class="submit" (click)="onSubmit()"  routerLink="/dashboard/screen2" [disabled]="ScarpForm.invalid" >Scrap</button>
+          <button class="submit" (click)="onSubmit()" [disabled]="ScarpForm.invalid" >Scrap</button>
          </div>
         </div>
       </div>

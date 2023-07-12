@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable, Subject } from 'rxjs';
 
 
 @Injectable({
@@ -13,12 +14,11 @@ export class ResourceService {
 
   constructor(private http: HttpClient) { }
 
-  getApi() {
-    return this.http.get<{
-      err: boolean,
-      response:any,
-      message:any;
-    }> (`${environment.baseUrl}/task/getalldata`)
+  private sharedData: Subject<any> = new Subject<any>();
+  sharedData$: Observable<any> = this.sharedData.asObservable();
+
+  setData(updatedData:any) {
+    this.sharedData.next(updatedData);
   }
 
  addApi(datas:any){
@@ -36,16 +36,6 @@ export class ResourceService {
       message:any;
     }> (`${environment.baseUrl}/task/update/${id}`,datas)
   }
-
-
-   deleteApi(id:any){
-    return this.http.post<{
-      error:boolean,
-      response:any,
-      message:any
-    }> (`${environment.baseUrl}/task/delete`,id)
-   }
-
 
 
 }

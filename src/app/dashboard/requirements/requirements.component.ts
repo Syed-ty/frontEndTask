@@ -1,8 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ResourceService } from '../resource.service';
-import { Router } from '@angular/router';
-import { SharedService } from '../shared/shared.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -13,19 +11,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RequirementsComponent implements OnInit {
 
-
   ScarpForm!: FormGroup;
 
-
-
-
   constructor(
-     public dialog: MatDialog,
      private service: ResourceService,
       private router: Router,
-      public dialogss: MatDialog,
-       private sharedService: SharedService,
-       private toaster :ToastrService
+       private toast: ToastrService,
+       private route: ActivatedRoute
        ) {
         this.ScarpForm = new FormGroup({
           searchUrl: new FormControl('', [
@@ -35,18 +27,42 @@ export class RequirementsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const routeData = this.router.url;
+     if(routeData === '/dashboard/screen1'){
+      localStorage.clear();
+      localStorage.removeItem('WebsiteDetails');
+     }
   }
 
   ngAfterViewInit() {
   }
 
 
-onSubmit(){
-  this.service.addApi(this.ScarpForm.value).subscribe((res)=>{
-    console.log(res,'res');
-  })
-}
 
+
+  showLoadingIndicator:Boolean = false
+onSubmit(){
+  this.showLoadingIndicator = true
+  this.service.addApi(this.ScarpForm.value).subscribe((res)=>{
+    if (!res.err) {
+      this.showLoadingIndicator=false
+      this.toast.success(res.message);
+      localStorage.setItem('WebsiteDetails',JSON.stringify(res.response));
+      this.ScarpForm.reset();
+      this.router.navigateByUrl('/dashboard/screen2')
+    } else {
+      this.toast.error(res.message);
+    }
+  }, err => {
+    if (err.status) {
+      this.showLoadingIndicator = false
+      this.toast.error(err.error.message);
+    } else {
+      this.showLoadingIndicator= false;
+      this.toast.error("CONNECTION_ERROR");
+    }
+  });
+   }
 
 
 }

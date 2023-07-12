@@ -20,7 +20,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
-// import { NgOtpInputModule } from 'ng-otp-input';
 import { HttpClientModule } from '@angular/common/http';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -28,10 +27,6 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-// import { NgxSpinnerModule } from "ngx-spinner";
-// import { SpinnerComponent } from 'src/app/spinner/spinner.component';
-// import{NgChartsModule}from 'ng2-charts'
-// import { NumberOnlyDirective } from '../number-only.directive';
 interface NgxSpinnerConfig {
   type?: string;
 }
