@@ -21,7 +21,7 @@ export class RequirementsComponent implements OnInit {
        ) {
         this.ScarpForm = new FormGroup({
           searchUrl: new FormControl('', [
-            Validators.required,
+            Validators.required,Validators.pattern(/((https?:\/\/)|(\/)|(..\/))(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/gm)
           ]),
         })
   }

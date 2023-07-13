@@ -1,4 +1,7 @@
-<mat-spinner *ngIf="showLoadingIndicator"></mat-spinner>
+<div class="spinner" *ngIf="showLoadingIndicator">
+  <mat-spinner ></mat-spinner>
+</div>
+
 
 <div class="main">
   <div class="form">
@@ -10,6 +13,9 @@
             <mat-form-field appearance="outline">
               <input matInput placeholder="Enter URL" formControlName="searchUrl" >
             </mat-form-field>
+            <mat-error *ngIf="ScarpForm.get('searchUrl')?.touched && ScarpForm.get('searchUrl')?.errors">
+              Please provide valid url with the format as https://xyz.com
+            </mat-error>
           </div>
          <div class="form-group text-center mt-3">
           <button class="submit" (click)="onSubmit()" [disabled]="ScarpForm.invalid" >Scrap</button>

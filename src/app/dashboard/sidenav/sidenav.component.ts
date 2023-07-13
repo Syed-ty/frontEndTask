@@ -52,11 +52,11 @@ export class SidenavComponent implements OnInit,AfterViewInit {
         }
   this.service.EditApi(this.sharedData?._id,obj).subscribe((res)=>{
     if (!res.err) {
-      this.showLoadingIndicator=false
+      this.showLoadingIndicator=false;
       this.toast.success(res.message);
       localStorage.clear();
       localStorage.removeItem('WebsiteDetails');
-      this.cdr.detectChanges()
+      this.cdr.detectChanges();
       this.themesArray= res.response.themesOfLogo;
       localStorage.setItem('WebsiteDetails',JSON.stringify(res.response));
     } else {
@@ -64,7 +64,7 @@ export class SidenavComponent implements OnInit,AfterViewInit {
     }
   }, err => {
     if (err.status) {
-      this.showLoadingIndicator = false
+      this.showLoadingIndicator = false;
       this.toast.error(err.error.message);
     } else {
       this.showLoadingIndicator= false;
