@@ -34,7 +34,7 @@ export class SidenavComponent implements OnInit,AfterViewInit {
         this.sharedData = JSON.parse(localStorage.getItem('WebsiteDetails') as string);
         this.TypographyArray = this.sharedData?.typography;
         this.themesArray = this.sharedData?.themesOfLogo;
-        this.selectedImageSrc = this.sharedData?.logoofWebsite;
+        this.selectedImageSrc = this.sharedData?.logooFWebsite;
         this.cdr.detectChanges();
     }
 
@@ -48,7 +48,7 @@ export class SidenavComponent implements OnInit,AfterViewInit {
       reader.onload = (e: any) => {
         this.selectedImageSrc = e.target.result;
         let obj ={
-          "selectedfile":this.selectedImageSrc
+          "selectedFile":this.selectedImageSrc
         }
   this.service.EditApi(this.sharedData?._id,obj).subscribe((res)=>{
     if (!res.err) {
